@@ -102,8 +102,8 @@ npm_config_cache=$(mktemp -d) npm pack --pack-destination artifacts
 
 # 装进 profile，替换旧条目；不要在 profile 的 package.json 里手写 link:
 mkdir -p "$DSH_HOME/profiles/web/.plugin-manager/packages"
-cp artifacts/dsh-mek-pidesk-sync-0.1.2.tgz "$DSH_HOME/profiles/web/.plugin-manager/packages/"
-dsh plugin --profile web add -w "file:$DSH_HOME/profiles/web/.plugin-manager/packages/dsh-mek-pidesk-sync-0.1.2.tgz" \
+cp artifacts/dsh-mek-pidesk-sync-0.1.3.tgz "$DSH_HOME/profiles/web/.plugin-manager/packages/"
+dsh plugin --profile web add -w "file:$DSH_HOME/profiles/web/.plugin-manager/packages/dsh-mek-pidesk-sync-0.1.3.tgz" \
   --ignore-scripts
 # 重启 DSH Web 进程后生效
 ```
@@ -129,3 +129,7 @@ npm test
 - 配置无效时暂停推送（记日志），不卸载插件。
 - 手机推送是尽力而为的旁路：网络不通、key 失效只记日志，屏幕推送不受影响。
 - 无浏览器半边（纯 host 定时任务），不占用 GUI 资源。
+
+## DSH 宿主依赖
+
+DSH、Cordis、Schemastery 等宿主 API 由 DSH 运行时提供，声明为 peer 依赖。开发时通过 `npm ci` 安装独立的开发依赖；生产插件不携带宿主核心库副本，否则会破坏智能体作用域，导致工具重复注册。

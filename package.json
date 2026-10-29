@@ -1,6 +1,6 @@
 {
   "name": "dsh-mek-pidesk-sync",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "DSH 会话任务看板：聚合 DSH/Codex 任务进度，推送到 pidesk 信息屏",
   "type": "module",
   "main": "./host/index.js",
@@ -30,7 +30,15 @@
     "test": "node --test tests/run.mjs"
   },
   "license": "MIT",
-  "dependencies": {
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "3.18.6-alpha.1"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
     "@deepseek-ai/schemastery": "3.18.6-alpha.1"
   }
 }
