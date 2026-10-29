@@ -1,3 +1,3 @@
 - insert:
     - id: pidesk-sync
-      name: '@dsh/pidesk-sync'
+      name: 'dsh-mek-pidesk-sync'

@@ -1,5 +1,5 @@
 {
-  "name": "@dsh/pidesk-sync",
+  "name": "dsh-mek-pidesk-sync",
   "version": "0.1.2",
   "description": "DSH 会话任务看板：聚合 DSH/Codex 任务进度，推送到 pidesk 信息屏",
   "type": "module",

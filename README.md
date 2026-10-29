@@ -1,6 +1,6 @@
-# dsh-plugin-pidesk-sync
+# dsh-mek-pidesk-sync
 
-DSH 插件包名为 `@dsh/pidesk-sync`；项目以独立仓库维护，保留既有插件 ID 和配置。
+DSH 插件包名为 `dsh-mek-pidesk-sync`；项目以独立仓库维护，保留既有插件 ID 和配置。
 
 DSH 会话任务看板推送：聚合本机 **DSH** 与 **Codex** 的任务进度，定时推送到
 [PiDesk](https://github.com/MakeEpoch/maker-pidesk) 桌面信息屏（右侧「智能体任务」模块）。
@@ -93,8 +93,8 @@ node tools/bark-test.mjs --key <你的BarkKey>
 影响运行中的插件；打包后 `.dsh` 里是独立快照，工作树怎么改都不影响它。
 
 ```sh
-git clone https://github.com/MakeEpoch/dsh-plugin-pidesk-sync.git
-cd dsh-plugin-pidesk-sync
+git clone https://github.com/MakeEpoch/dsh-mek-pidesk-sync.git
+cd dsh-mek-pidesk-sync
 DSH_HOME="${DSH_HOME:-$HOME/.dsh}"
 # 打包（需要可写 npm 缓存，环境默认缓存只读时用 npm_config_cache 指到临时目录）
 mkdir -p artifacts
@@ -102,8 +102,8 @@ npm_config_cache=$(mktemp -d) npm pack --pack-destination artifacts
 
 # 装进 profile，替换旧条目；不要在 profile 的 package.json 里手写 link:
 mkdir -p "$DSH_HOME/profiles/web/.plugin-manager/packages"
-cp artifacts/dsh-pidesk-sync-0.1.2.tgz "$DSH_HOME/profiles/web/.plugin-manager/packages/"
-dsh plugin --profile web add -w "file:$DSH_HOME/profiles/web/.plugin-manager/packages/dsh-pidesk-sync-0.1.2.tgz" \
+cp artifacts/dsh-mek-pidesk-sync-0.1.2.tgz "$DSH_HOME/profiles/web/.plugin-manager/packages/"
+dsh plugin --profile web add -w "file:$DSH_HOME/profiles/web/.plugin-manager/packages/dsh-mek-pidesk-sync-0.1.2.tgz" \
   --ignore-scripts
 # 重启 DSH Web 进程后生效
 ```
